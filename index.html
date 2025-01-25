@@ -1,240 +1,165 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Jacob Construction</title>
-	<meta name="description" content="Jacob Construction">
-	<meta name="keywords" content="House construction, Construction ,renovations, roofing, tiling, Gate construction,electric gates, Pool refurbishment">
-	<style type="text/css">
-		*{
-			padding: 0;
-			margin: 0;
-			text-decoration: none;
-			list-style: none;
-			box-sizing: border-box;
-		}
-		nav{
-			background: black;
-			height: 80px;
-			width: 100%;
-		}
-		#main-head{
-			font-size: 30px;
-			color: white;
-			line-height: 80px;
-			background-size: cover;
-			display: inline-block;
-			margin-bottom: 0px;
-			text-align: float left;
-			margin-right: 20px;
-
-
-		}
-		nav ul{
-			float: right;
-			margin-right: 20px;
-
-		}
-		nav ul li{
-			display: inline-block;
-			line-height: 80px;
-			margin: 0 5px;
-			position: relative;
-
-		}
-		nav ul li a{
-			color: white;
-			font-size: 20px;
-			text-transform: uppercase;
-			padding: 7px 13px;
-			border-radius: 3px;
-			display: inline-block;
-					
-			}
-			a.active,a:hover{
-				color: white;
-				transition: 0.15s;
-				
-
-			}
-			.checkbtn{
-				font-size: 30px;
-				color: white;
-				float: right;
-				line-height: 80px;
-				margin-right: 40px;
-				cursor: pointer;
-				display: none;
-			}
-			#check{
-				display: none;
-			}
-			
-			nav ul li a:hover{
-				color: white;
-				display: inline-block;
-				background-color: green;
-				padding: 5px;
-				padding-top: 5px;
-				padding-bottom: 5px;
-				transition: 0.15s;
-				opacity: 0.5;
-			}
-			#body-main{
-				background-image: url(images/koro.jpeg);
-				background-size: cover;
-			}
-			#tribe{
-				color: white;
-				margin-right: 10px;
-			}
-			#facebook{
-				width: 20px;
-				border-radius: 7px;
-				margin-left: 20px;
-			}
-			#instagram{
-				width: 20px;
-				border-radius: 5px;
-			}
-			#tribe:hover{
-				color: blue;
-				background-color: white;
-				cursor: pointer;
-			}
-		
-		a:hover{
-			color: red;
-			background-color: green,
-			cursor: pointer;
-			opacity: 0.6;
-			transition: 0.17s;
-		}
-		#container{
-			width: 100%;
-			min-height: 100vh;
-			padding: 5%;
-			background-image: url(images/search);
-			background-position: center;
-			background-size: cover;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
-		.slider-frame{
-		overflow: hidden;
-		width: 800px;
-		margin-left: 400px;
-		margin-top: 20px;
-		height: 700px;
-		margin-left: 360px;
-		margin-top: 20px;
-
-	}
-	#j{
-		width: 800px;
-		border-radius: 5px;
-	}
-	#k{
-		width: 800px;
-		border-radius: 5px;
-	}
-	#l{
-		width: 800px;
-		border-radius: 5px;
-	}
-
-	@-webkit-keyframes slide_animation{
-		0% {left:0px;}
-		10% {left:0px;}
-		20% {left:800px;}
-		30% {left:800px;}
-		40% {left:1600px;}
-		50% {left:1600px;}
-		60% {left:800px;}
-		70% {left:800px;}
-		80% {left:0px;}	
-		90% {left:0px;}
-		100% {left:0px;}
-		
-	}
-	.slide-images{
-		width: 800px;
-		margin: 0 0 0 -800px;
-		position: relative;
-		-webkit-animation-name: slide_animation;
-		-webkit-animation-duration: 20s;
-		-webkit-animation-iteration-count: infinite;
-		-webkit-animation-direction: alternate;
-		-webkit-animation-play-state: running;
-	}
-	.image-container{
-		width: 900px;
-		position: relative;
-		float: left;
-		height: 800px;
-	}
-	.fit-screen{
-		height: 100dvh;
-		
-	}	
-	h5{ color: white;
-	font-size: 20px; 
-}
-#chain{
-	width: 100px;
-	border-radius: 50px;
-	display: inline-block;
-	
-
-
-}
-	</style>
-	<link rel="stylesheet" type="text/css" href="http://kit.fontawesome.com/a076d05399">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id" content="YOUR_GOOGLE_CLIENT_ID">
+    <title>Dating Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #ff4081;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .profile-photo {
+            margin-top: 20px;
+            display: block;
+        }
+        .message-section {
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 10px 15px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
+<body>
+    <header>
+        <h1>Welcome to LoveConnect</h1>
+    </header>
 
-<br>
-<body id="body-main">
-	<div class="fit-screen">
-	 <img id="chain" src="images/biri.jpeg"><h1 id="main-head"> JACOB CONSTRUCTION </h1>
-	<br>
-	<nav>
-<h5>JACOB CONSTRUCTION +27 61 400 8580</h5>
-		
-	<a href="https://web.facebook.com/"><img id="facebook" src="images/facebook.jpg" target="_blank"></a>
-	<ul>
-		<li><a class="active" href="index.html">Home</a></li>
-		<li><a href="details.html">About Us</a></li>
-		<li><a href="contacts.html">Contacts</a></li>
-	</ul>
-	</nav>
-	<br>
-	<br>
+    <div class="container">
+        <div id="login-section">
+            <h2>Log In</h2>
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        </div>
 
-	<div class="slider-frame">
-	<div class="slide-images">
-		
-			
-			<div class="img-container">
-				<img  src="images/bara.jpeg">
-				
-			</div>
+        <div id="dashboard" style="display:none;">
+            <h2>Welcome, <span id="user-name"></span>!</h2>
+            <button onclick="signOut()" class="btn">Sign Out</button>
+            
+            <h3>Update Profile</h3>
+            <textarea id="profile-description" rows="5" cols="50" placeholder="Write something about yourself..."></textarea>
+            <br>
+            <input type="file" id="profile-photo" accept="image/*" class="profile-photo">
+            <br>
+            <button class="btn" onclick="updateProfile()">Save Profile</button>
 
-			<div class="img-container">
-				<img  src="">
-				
-			</div>
-			
-	</div>
-</div>
-	
-</div>
-	<br>
-	<br>
+            <div class="message-section">
+                <h3>Messages</h3>
+                <ul id="messages-list">
+                    <!-- Messages will load here -->
+                </ul>
+                <textarea id="message-text" rows="3" cols="50" placeholder="Write a message..."></textarea>
+                <br>
+                <button class="btn" onclick="sendMessage()">Send Message</button>
+            </div>
 
-	<br>
-	<br> 
-	
-	<br>
+            <div id="premium-section" style="display:none; margin-top:20px;">
+                <h3>Unlock Premium</h3>
+                <p>Upgrade to premium to read responses to your messages.</p>
+                <button class="btn" onclick="subscribePremium()">Upgrade Now</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script>
+        let isPremium = false;
+
+        // Google Sign-In
+        function onSignIn(googleUser) {
+            const profile = googleUser.getBasicProfile();
+            document.getElementById('login-section').style.display = 'none';
+            document.getElementById('dashboard').style.display = 'block';
+            document.getElementById('user-name').innerText = profile.getName();
+        }
+
+        function signOut() {
+            const auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                document.getElementById('dashboard').style.display = 'none';
+                document.getElementById('login-section').style.display = 'block';
+            });
+        }
+
+        // Profile Update
+        function updateProfile() {
+            const description = document.getElementById('profile-description').value;
+            const photo = document.getElementById('profile-photo').files[0];
+            if (description && photo) {
+                alert('Profile updated successfully!');
+                // Save description and photo in backend
+            } else {
+                alert('Please fill in all fields.');
+            }
+        }
+
+        // Messaging System
+        function sendMessage() {
+            const message = document.getElementById('message-text').value;
+            if (message) {
+                const list = document.getElementById('messages-list');
+                const li = document.createElement('li');
+                li.innerText = `You: ${message}`;
+                list.appendChild(li);
+                document.getElementById('message-text').value = '';
+                // Save message in backend
+            } else {
+                alert('Please write a message.');
+            }
+        }
+
+        // Unlock Premium
+        function subscribePremium() {
+            isPremium = true;
+            alert('You are now a premium member!');
+            document.getElementById('premium-section').style.display = 'none';
+        }
+
+        // Load Messages
+        function loadMessages() {
+            // Fetch messages from backend
+            const messages = [
+                { text: 'Hi! How are you?', from: 'Other User', canRead: isPremium },
+            ];
+
+            const list = document.getElementById('messages-list');
+            list.innerHTML = '';
+            messages.forEach(msg => {
+                const li = document.createElement('li');
+                if (msg.canRead) {
+                    li.innerText = `${msg.from}: ${msg.text}`;
+                } else {
+                    li.innerText = `${msg.from}: (Upgrade to premium to read this message)`;
+                }
+                list.appendChild(li);
+            });
+        }
+    </script>
 </body>
 </html>
+
