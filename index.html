@@ -1,165 +1,152 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-signin-client_id" content="YOUR_GOOGLE_CLIENT_ID">
-    <title>Dating Website</title>
+    <title>Online Grocery Store</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
-        }
-        header {
-            background-color: #ff4081;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
+            box-sizing: border-box;
         }
         .container {
-            max-width: 900px;
-            margin: 20px auto;
             padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .profile-photo {
-            margin-top: 20px;
-            display: block;
+        .product {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
+            display: inline-block;
+            text-align: center;
+            width: 200px;
         }
-        .message-section {
-            margin-top: 20px;
+        .product img {
+            width: 100px;
+            height: 100px;
         }
-        .btn {
-            padding: 10px 15px;
+        .product button {
+            background-color: #28a745;
             color: white;
-            background-color: #007bff;
             border: none;
-            border-radius: 4px;
+            padding: 10px;
+            border-radius: 5px;
             cursor: pointer;
         }
-        .btn:hover {
+        .product button:hover {
+            background-color: #218838;
+        }
+        .cart {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        .cart h3 {
+            margin-top: 0;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+        }
+        .cart-total {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .checkout {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .checkout:hover {
             background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to LoveConnect</h1>
-    </header>
-
     <div class="container">
-        <div id="login-section">
-            <h2>Log In</h2>
-            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        <h1>Online Grocery Store</h1>
+        <div class="product" data-id="1" data-name="Apple" data-price="1.5">
+            <img src="https://via.placeholder.com/100" alt="Apple">
+            <h3>Apple</h3>
+            <p>$1.50</p>
+            <button onclick="addToCart(this)">Add to Cart</button>
         </div>
-
-        <div id="dashboard" style="display:none;">
-            <h2>Welcome, <span id="user-name"></span>!</h2>
-            <button onclick="signOut()" class="btn">Sign Out</button>
-            
-            <h3>Update Profile</h3>
-            <textarea id="profile-description" rows="5" cols="50" placeholder="Write something about yourself..."></textarea>
-            <br>
-            <input type="file" id="profile-photo" accept="image/*" class="profile-photo">
-            <br>
-            <button class="btn" onclick="updateProfile()">Save Profile</button>
-
-            <div class="message-section">
-                <h3>Messages</h3>
-                <ul id="messages-list">
-                    <!-- Messages will load here -->
-                </ul>
-                <textarea id="message-text" rows="3" cols="50" placeholder="Write a message..."></textarea>
-                <br>
-                <button class="btn" onclick="sendMessage()">Send Message</button>
-            </div>
-
-            <div id="premium-section" style="display:none; margin-top:20px;">
-                <h3>Unlock Premium</h3>
-                <p>Upgrade to premium to read responses to your messages.</p>
-                <button class="btn" onclick="subscribePremium()">Upgrade Now</button>
-            </div>
+        <div class="product" data-id="2" data-name="Banana" data-price="1.0">
+            <img src="https://via.placeholder.com/100" alt="Banana">
+            <h3>Banana</h3>
+            <p>$1.00</p>
+            <button onclick="addToCart(this)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="3" data-name="Orange" data-price="2.0">
+            <img src="https://via.placeholder.com/100" alt="Orange">
+            <h3>Orange</h3>
+            <p>$2.00</p>
+            <button onclick="addToCart(this)">Add to Cart</button>
         </div>
     </div>
+    <div class="cart">
+        <h3>Cart</h3>
+        <div id="cart-items"></div>
+        <p class="cart-total">Total: $<span id="cart-total">0.00</span></p>
+        <div class="checkout" onclick="checkout()">Proceed to Payment</div>
+    </div>
 
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script>
-        let isPremium = false;
+        const cart = [];
 
-        // Google Sign-In
-        function onSignIn(googleUser) {
-            const profile = googleUser.getBasicProfile();
-            document.getElementById('login-section').style.display = 'none';
-            document.getElementById('dashboard').style.display = 'block';
-            document.getElementById('user-name').innerText = profile.getName();
-        }
+        function addToCart(button) {
+            const product = button.parentElement;
+            const id = product.getAttribute('data-id');
+            const name = product.getAttribute('data-name');
+            const price = parseFloat(product.getAttribute('data-price'));
 
-        function signOut() {
-            const auth2 = gapi.auth2.getAuthInstance();
-            auth2.signOut().then(function () {
-                document.getElementById('dashboard').style.display = 'none';
-                document.getElementById('login-section').style.display = 'block';
-            });
-        }
+            const existingItem = cart.find(item => item.id === id);
 
-        // Profile Update
-        function updateProfile() {
-            const description = document.getElementById('profile-description').value;
-            const photo = document.getElementById('profile-photo').files[0];
-            if (description && photo) {
-                alert('Profile updated successfully!');
-                // Save description and photo in backend
+            if (existingItem) {
+                existingItem.quantity++;
             } else {
-                alert('Please fill in all fields.');
+                cart.push({ id, name, price, quantity: 1 });
             }
+
+            updateCart();
         }
 
-        // Messaging System
-        function sendMessage() {
-            const message = document.getElementById('message-text').value;
-            if (message) {
-                const list = document.getElementById('messages-list');
-                const li = document.createElement('li');
-                li.innerText = `You: ${message}`;
-                list.appendChild(li);
-                document.getElementById('message-text').value = '';
-                // Save message in backend
-            } else {
-                alert('Please write a message.');
-            }
-        }
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            cartItems.innerHTML = '';
+            let total = 0;
 
-        // Unlock Premium
-        function subscribePremium() {
-            isPremium = true;
-            alert('You are now a premium member!');
-            document.getElementById('premium-section').style.display = 'none';
-        }
-
-        // Load Messages
-        function loadMessages() {
-            // Fetch messages from backend
-            const messages = [
-                { text: 'Hi! How are you?', from: 'Other User', canRead: isPremium },
-            ];
-
-            const list = document.getElementById('messages-list');
-            list.innerHTML = '';
-            messages.forEach(msg => {
-                const li = document.createElement('li');
-                if (msg.canRead) {
-                    li.innerText = `${msg.from}: ${msg.text}`;
-                } else {
-                    li.innerText = `${msg.from}: (Upgrade to premium to read this message)`;
-                }
-                list.appendChild(li);
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    ${item.name} x${item.quantity} - $${(item.price * item.quantity).toFixed(2)}
+                `;
+                cartItems.appendChild(cartItem);
             });
+
+            cartTotal.textContent = total.toFixed(2);
+        }
+
+        function checkout() {
+            alert('Payment Gateway Simulation: Proceeding to payment!');
+            // Here, you can integrate an actual payment gateway
         }
     </script>
 </body>
 </html>
-
