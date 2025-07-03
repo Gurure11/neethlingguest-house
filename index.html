@@ -1,152 +1,114 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Grocery Store</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        .container {
-            padding: 20px;
-        }
-        .product {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 10px;
-            margin: 10px;
-            display: inline-block;
-            text-align: center;
-            width: 200px;
-        }
-        .product img {
-            width: 100px;
-            height: 100px;
-        }
-        .product button {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .product button:hover {
-            background-color: #218838;
-        }
-        .cart {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 20px;
-            border: 1px solid #ddd;
-            background: #f8f9fa;
-            border-radius: 10px;
-        }
-        .cart h3 {
-            margin-top: 0;
-        }
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            margin: 5px 0;
-        }
-        .cart-total {
-            font-weight: bold;
-            margin-top: 10px;
-        }
-        .checkout {
-            margin-top: 10px;
-            padding: 10px;
-            background-color: #007bff;
-            color: white;
-            text-align: center;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .checkout:hover {
-            background-color: #0056b3;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neethling 6 Guest House</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Swiper.js CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    .swiper { width: 100%; height: 500px; }
+    .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
+  </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Online Grocery Store</h1>
-        <div class="product" data-id="1" data-name="Apple" data-price="1.5">
-            <img src="https://via.placeholder.com/100" alt="Apple">
-            <h3>Apple</h3>
-            <p>$1.50</p>
-            <button onclick="addToCart(this)">Add to Cart</button>
-        </div>
-        <div class="product" data-id="2" data-name="Banana" data-price="1.0">
-            <img src="https://via.placeholder.com/100" alt="Banana">
-            <h3>Banana</h3>
-            <p>$1.00</p>
-            <button onclick="addToCart(this)">Add to Cart</button>
-        </div>
-        <div class="product" data-id="3" data-name="Orange" data-price="2.0">
-            <img src="https://via.placeholder.com/100" alt="Orange">
-            <h3>Orange</h3>
-            <p>$2.00</p>
-            <button onclick="addToCart(this)">Add to Cart</button>
-        </div>
+<body class="bg-gray-100 font-sans">
+  <!-- Navigation -->
+  <nav class="bg-blue-900 text-white fixed w-full z-10 top-0 shadow-lg">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Neethling 6 Guest House</h1>
+      <ul class="flex space-x-6">
+        <li><a href="#home" class="hover:text-yellow-400">Home</a></li>
+        <li><a href="#about" class="hover:text-yellow-400">About Us</a></li>
+        <li><a href="gallery.html" class="hover:text-yellow-400">Gallery</a></li>
+        <li><a href="booking.html" class="hover:text-yellow-400">Contact & Booking</a></li>
+      </ul>
     </div>
-    <div class="cart">
-        <h3>Cart</h3>
-        <div id="cart-items"></div>
-        <p class="cart-total">Total: $<span id="cart-total">0.00</span></p>
-        <div class="checkout" onclick="checkout()">Proceed to Payment</div>
+  </nav>
+
+  <!-- Hero Section with Slider -->
+  <section id="home" class="pt-20">
+    <div class="swiper hero-slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="https://source.unsplash.com/1600x900/?guesthouse,benoni" alt="Guest House Exterior">
+          <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <h2 class="text-4xl font-bold text-white">Welcome to Neethling 6 Guest House</h2>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://source.unsplash.com/1600x900/?bedroom,modern" alt="Guest Room">
+          <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <h2 class="text-4xl font-bold text-white">Comfortable & Affordable Stays</h2>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <img src="https://source.unsplash.com/1600x900/?benoni,scenic" alt="Benoni Scenery">
+          <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <h2 class="text-4xl font-bold text-white">In the Heart of Benoni</h2>
+          </div>
+        </div>
+      </div>
+      <პ  <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </div>
+  </section>
 
-    <script>
-        const cart = [];
+  <!-- About Us Section -->
+  <section id="about" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">About Us</h2>
+      <p class="text-lg text-gray-700 max-w-3xl mx-auto text-center">
+        Neethling 6 Guest House, located at 6 Neethling Avenue in the heart of Benoni, offers a warm and welcoming stay for travelers seeking comfort and convenience. Our guest house provides a range of accommodations, from single rooms to double rooms, all fitted with double beds, private shower rooms, toilets, TVs, and DSTV. Whether you're looking for a short 2-hour rest at R160 or an overnight stay at R400 per night, we cater to your needs with modern amenities and exceptional hospitality. Situated in the vibrant city of Benoni, our guest house is perfect for business travelers, tourists, or anyone seeking a relaxing getaway.
+      </p>
+    </div>
+  </section>
 
-        function addToCart(button) {
-            const product = button.parentElement;
-            const id = product.getAttribute('data-id');
-            const name = product.getAttribute('data-name');
-            const price = parseFloat(product.getAttribute('data-price'));
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">Contact Us</h2>
+      <div class="max-w-2xl mx-motorcycle-auto text-center">
+        <p class="text-lg text-gray-700 mb-4"><strong>Address:</strong> 6 Neethling Avenue, Benoni, South Africa</p>
+        <p class="text-lg text-gray-700 mb-4"><strong>Email:</strong> info@neethling6guesthouse.com</p>
+        <p class="text-lg text-gray-700 mb-4"><strong>Phone:</strong> +27 11 123 4567</p>
+        <p class="text-lg text-gray-700 mb-4"><strong>Rates:</strong> R160 for 2-hour rest, R400 per night</p>
+        <div class="flex justify-center space-x-6 mt-6">
+          <a href="https://facebook.com" target="_blank" class="text-gray-900 hover:text-blue-600">
+            <i class="fab fa-facebook-f text-2xl"></i>
+          </a>
+          <a href="https://whatsapp.com" target="_blank" class="text-gray-900 hover:textEstrada-text-green-600">
+            <i class="fab fa-whatsapp text-2xl"></i>
+          </a>
+        </div>
+      </div>
+    </section>
 
-            const existingItem = cart.find(item => item.id === id);
+  <!-- Footer -->
+  <footer class="bg-blue-900 text-white py-8">
+    <div class="container mx-auto px-4 text-center">
+      <p>© 2025 Neethling 6 Guest House. All rights reserved.</p>
+      <p class="mt-2">6 Neethling Avenue, Benoni, South Africa</p>
+    </div>
+  </footer>
 
-            if (existingItem) {
-                existingItem.quantity++;
-            } else {
-                cart.push({ id, name, price, quantity: 1 });
-            }
-
-            updateCart();
-        }
-
-        function updateCart() {
-            const cartItems = document.getElementById('cart-items');
-            const cartTotal = document.getElementById('cart-total');
-            cartItems.innerHTML = '';
-            let total = 0;
-
-            cart.forEach(item => {
-                total += item.price * item.quantity;
-                const cartItem = document.createElement('div');
-                cartItem.classList.add('cart-item');
-                cartItem.innerHTML = `
-                    ${item.name} x${item.quantity} - $${(item.price * item.quantity).toFixed(2)}
-                `;
-                cartItems.appendChild(cartItem);
-            });
-
-            cartTotal.textContent = total.toFixed(2);
-        }
-
-        function checkout() {
-            alert('Payment Gateway Simulation: Proceeding to payment!');
-            // Here, you can integrate an actual payment gateway
-        }
-    </script>
+  <!-- Swiper Initialization Script -->
+  <script>
+    // Hero Slider
+    new Swiper('.hero-slider', {
+      loop: true,
+      autoplay: { delay: 5000 },
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
 </body>
 </html>
