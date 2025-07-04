@@ -4,149 +4,239 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Neethling 6 Guest House</title>
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Swiper.js CDN -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <style>
+    /* Custom CSS for Hero Slider */
     .swiper { width: 100%; height: 500px; }
     .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
-    p{
-      text-align: center;
-      align-items: center;
+    .absolute {
+        position: absolute;
     }
-    li{
-      text-align: center;
-      align-items: center;
-      
+    .inset-0 {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
     }
-    h2{
+    .flex {
+        display: flex;
+    }
+    .items-center {
+        align-items: center;
+    }
+    .justify-center {
+        justify-content: center;
+    }
+    .bg-black {
+        background-color: black;
+    }
+    .bg-opacity-50 {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    .text-white {
+        color: white;
+    }
+    .text-4xl {
+        font-size: 2.25rem; /* 36px */
+    }
+    .font-bold {
+        font-weight: 700;
+    }
+
+    /* General Body Text Alignment (Adjusted to be less global) */
+    p {
+      text-align: left; /* Default to left alignment */
+    }
+    li {
+      text-align: left; /* Default to left alignment */
+      margin-left: 1.5rem; /* Indent list items */
+      list-style-type: disc; /* Add bullet points */
+    }
+
+    /* Specific Heading Alignment */
+    h2 {
       font-size: 30px;
-       text-align: center;
+      text-align: center; /* Keep section headings centered */
       align-items: center;
-      
+    }
+
+    /* Stunning Image Grid Styles */
+    .stunning-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+    .stunning-grid-item {
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Stronger shadow for "stunning" effect */
+        background-color: white;
+    }
+    .stunning-grid-item img {
+        width: 100%;
+        height: 250px; /* Slightly taller for more impact */
+        object-fit: cover;
+        border-radius: 12px; /* Full rounded corners for grid items */
+        transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+    }
+    .stunning-grid-item img:hover {
+        transform: scale(1.1); /* More aggressive zoom */
+        filter: brightness(0.7); /* More darkening on hover */
+    }
+    /* Adding subtle animation for stunning images */
+    .stunning-grid-item {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInSlideUp 0.8s ease-out forwards;
+    }
+    .stunning-grid-item:nth-child(1) { animation-delay: 0.1s; }
+    .stunning-grid-item:nth-child(2) { animation-delay: 0.2s; }
+    .stunning-grid-item:nth-child(3) { animation-delay: 0.3s; }
+
+    @keyframes fadeInSlideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 <body class="bg-gray-100 font-sans">
-  <!-- Navigation -->
   <nav class="bg-blue-900 text-white fixed w-full z-10 top-0 shadow-lg">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold">Neethling 6 Guest House</h1>
-      <ul class="flex space-x-6">
-        <li><a href="#home" class="hover:text-yellow-400">Home</a></li>
-        <li><a href="#about" class="hover:text-yellow-400">About Us</a></li>
-        <li><a href="details.html" class="hover:text-yellow-400">Gallery</a></li>
-        <li><a href="contact.html" class="hover:text-yellow-400">Contact & Booking</a></li>
+      <h1 class="text-3xl font-extrabold text-yellow-400">Neethling 6 Guest House</h1>
+      <ul class="flex space-x-6 text-lg">
+        <li><a href="#home" class="hover:text-yellow-400 transition duration-300 font-semibold border-b-2 border-yellow-400 pb-1">Home</a></li>
+        <li><a href="#about" class="hover:text-yellow-400 transition duration-300">About Us</a></li>
+        <li><a href="details.html" class="hover:text-yellow-400 transition duration-300">Gallery</a></li>
+        <li><a href="contact.html" class="hover:text-yellow-400 transition duration-300">Contact & Booking</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Hero Section with Slider -->
   <section id="home" class="pt-20">
     <div class="swiper hero-slider">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
           <img src="images/cala.jpg" alt="Guest House Exterior">
           <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-            <h2 class="text-4xl font-bold text-white">Welcome to Neethling 6 Guest House</h2>
+            <h2 class="text-4xl font-bold text-white text-center">Welcome to Neethling 6 Guest House</h2>
           </div>
         </div>
         <div class="swiper-slide">
           <img src="images/cili.jpg" alt="Guest Room">
           <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-            <h2 class="text-4xl font-bold text-white">Comfortable & Affordable Stays</h2>
+            <h2 class="text-4xl font-bold text-white text-center">Comfortable & Affordable Stays</h2>
           </div>
         </div>
         <div class="swiper-slide">
           <img src="images/dala.jpg" alt="Benoni Scenery">
           <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-            <h2 class="text-4xl font-bold text-white">In the Heart of Benoni</h2>
+            <h2 class="text-4xl font-bold text-white text-center">In the Heart of Benoni</h2>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <img src="images/dili.jpg" alt="Another Guest Room">
+          <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <h2 class="text-4xl font-bold text-white text-center">Your Home Away From Home</h2>
           </div>
         </div>
       </div>
-      <პ  <div class="swiper-pagination"></div>
+      <div class="swiper-pagination"></div>
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
     </div>
   </section>
 
-  <!-- About Us Section -->
   <section id="about" class="py-16 bg-white">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-8">About Us</h2>
-      <p class="text-lg text-gray-700 max-w-3xl mx-auto text-center">
-        Neethling 6 Guest House, located at 6 Neethling Avenue in the heart of Benoni, offers a warm and welcoming stay for travelers seeking comfort and convenience. Our guest house provides a range of accommodations, from single rooms to double rooms, all fitted with double beds, private shower rooms, toilets, TVs, and DSTV. Whether you're looking for a short 2-hour rest at R160 or an overnight stay at R400 per night, we cater to your needs with modern amenities and exceptional hospitality. Situated in the vibrant city of Benoni, our guest house is perfect for business travelers, tourists, or anyone seeking a relaxing getaway.
+      <h2 class="text-4xl font-extrabold text-center mb-8 text-blue-900">About Us</h2>
+      <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-8">
+        Neethling 6 Guest House, located at **6 Neethling Avenue in the heart of Benoni**, offers a warm and welcoming stay for travelers seeking comfort and convenience. Our guest house provides a range of accommodations, from single rooms to double rooms, all fitted with double beds, private shower rooms, toilets, TVs, and DSTV. Whether you're looking for a **short 2-hour rest at R150** or an **overnight stay at R400 per night**, we cater to your needs with modern amenities and exceptional hospitality. Situated in the vibrant city of Benoni, our guest house is perfect for business travelers, tourists, or anyone seeking a relaxing getaway.
       </p>
+
+      <h2 class="text-4xl font-extrabold text-center mb-8 text-blue-900">Why Choose Us</h2>
+      <div class="max-w-3xl mx-auto">
+        <p class="text-lg text-gray-700 mb-4">
+          🌟 Nestled in the serene suburb of Benoni, Neethling 6 Guest House offers guests a peaceful and homely escape with all the comforts of modern hospitality. While Benoni is known for its bustling malls, lakes, and vibrant business centers, Neethling 6 stands out as a tranquil retreat—just minutes away from the action, yet perfectly removed from the noise.
+        </p>
+        <p class="text-lg text-gray-700 mb-6">
+          Whether you're visiting for business or leisure, our guest house offers:
+        </p>
+        <ul class="text-lg text-gray-700 mb-6">
+          <li><i class="fas fa-check-circle text-blue-600 mr-2"></i>Clean, stylishly furnished rooms</li>
+          <li><i class="fas fa-wifi text-blue-600 mr-2"></i>Free Wi-Fi and secure parking</li>
+          <li><i class="fas fa-tree text-blue-600 mr-2"></i>A peaceful garden for relaxation</li>
+          <li><i class="fas fa-handshake text-blue-600 mr-2"></i>Personalized service that makes you feel at home</li>
+        </ul>
+        <p class="text-lg text-gray-700">
+          Unlike chain hotels or crowded lodges, Neethling 6 Guest House delivers privacy, warmth, and convenience—right in the heart of Benoni.
+        </p>
+        <p class="text-lg text-gray-700 mt-4 text-center font-semibold">
+          Experience the best of Benoni—with comfort and calm at Neethling 6.
+        </p>
+      </div>
     </div>
-  </section><br>
- 
-          <br>
-          <p>
-<h2>
-  <h2>Why Chose Us</h2><br>
+  </section>
 
-  🌟 Why Choose Neethling 6 Guest House in Benoni?
-Nestled in the serene suburb of Benoni, Neethling 6 Guest House offers guests a peaceful and homely escape with all the comforts of modern hospitality. While Benoni is known for its bustling malls, lakes, and vibrant business centers, Neethling 6 stands out as a tranquil retreat—just minutes away from the action, yet perfectly removed from the noise.
+  <section id="featured-images" class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl font-extrabold text-center mb-12 text-blue-900">Discover More of Our Guest House</h2>
+      <div class="stunning-grid">
+        <div class="stunning-grid-item">
+          <img src="images/colo.jpg" alt="Elegant Interior Space">
+        </div>
+        <div class="stunning-grid-item">
+          <img src="images/culu.jpg" alt="Comfortable Bedroom">
+        </div>
+        <div class="stunning-grid-item">
+          <img src="images/mala.jpg" alt="Welcoming Lounge Area">
+        </div>
+      </div>
+    </div>
+  </section>
 
-Whether you're visiting for business or leisure, our guest house offers:
-
-<ol>
-  <li>Clean, stylishly furnished rooms</li>
-
-<li>Free Wi-Fi and secure parking</li>
-
-<li>A peaceful garden for relaxation</li>
-
-<li>Personalized service that makes you feel at home</li>
-</ol>
-
-Unlike chain hotels or crowded lodges, Neethling 6 Guest House delivers privacy, warmth, and convenience—right in the heart of Benoni.
-
-Experience the best of Benoni—with comfort and calm at Neethling 6.
-
-
-
-            
-          </p>
-
-  <!-- Contact Section -->
   <section id="contact" class="py-16 bg-white">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-8">Contact Us</h2>
-      <div class="max-w-2xl mx-motorcycle-auto text-center">
+      <h2 class="text-4xl font-extrabold text-center mb-8 text-blue-900">Contact Us</h2>
+      <div class="max-w-2xl mx-auto text-center">
         <p class="text-lg text-gray-700 mb-4"><strong>Address:</strong> 6 Neethling Avenue, Benoni, South Africa</p>
         <p class="text-lg text-gray-700 mb-4"><strong>Email:</strong> neethling6guesthouse@gmail.com</p>
-        <p class="text-lg text-gray-700 mb-4"><strong>Phone:</strong> +27 76 625 6533</p>
-        <p class="text-lg text-gray-700 mb-4"><strong>Rates:</strong> R160 for 2-hour rest, R50 extra hr then R400 per night</p>
+        <p class="text-lg text-gray-700 mb-4"><strong>Phone:</strong> <a href="tel:+27766256533" class="text-blue-700 hover:text-yellow-500 transition duration-300">+27 76 625 6533</a></p>
+        <p class="text-lg text-gray-700 mb-4"><strong>Rates:</strong> R150 for 2-hour rest, R50 extra per hour, R400 per night</p>
         <div class="flex justify-center space-x-6 mt-6">
-          <a href="https://facebook.com" target="_blank" class="text-gray-900 hover:text-blue-600">
+          <a href="https://facebook.com" target="_blank" class="text-gray-900 hover:text-blue-600 transition duration-300">
             <i class="fab fa-facebook-f text-2xl"></i>
           </a>
-          <a href="https://wa.me/27766256533" target="_blank" class="text-gray-900 hover:textEstrada-text-green-600">
+          <a href="https://wa.me/27766256533" target="_blank" class="text-gray-900 hover:text-green-600 transition duration-300">
             <i class="fab fa-whatsapp text-2xl"></i>
           </a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-  <!-- Footer -->
   <footer class="bg-blue-900 text-white py-8">
     <div class="container mx-auto px-4 text-center">
-      <p>© 2025 Neethling 6 Guest House. All rights reserved.</p>
-      <p class="mt-2">6 Neethling Avenue, Benoni, South Africa</p>
+      <p class="text-lg">&copy; 2025 Neethling 6 Guest House. All rights reserved.</p>
+      <p class="mt-2 text-md"><i class="fas fa-map-marker-alt mr-2"></i>6 Neethling Avenue, Benoni, South Africa</p>
+      <div class="flex justify-center space-x-4 mt-4">
+        <a href="#" class="text-white hover:text-yellow-400 transition duration-300"><i class="fab fa-facebook-f text-xl"></i></a>
+        <a href="#" class="text-white hover:text-yellow-400 transition duration-300"><i class="fab fa-instagram text-xl"></i></a>
+        <a href="#" class="text-white hover:text-yellow-400 transition duration-300"><i class="fab fa-twitter text-xl"></i></a>
+      </div>
     </div>
   </footer>
 
-  <!-- Swiper Initialization Script -->
   <script>
     // Hero Slider
     new Swiper('.hero-slider', {
       loop: true,
-      autoplay: { delay: 5000 },
+      autoplay: { delay: 5000, disableOnInteraction: false },
       pagination: { el: '.swiper-pagination', clickable: true },
       navigation: {
         nextEl: '.swiper-button-next',
